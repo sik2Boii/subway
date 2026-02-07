@@ -1,4 +1,4 @@
-package kr.mingling.subway.entity;
+package kr.mingling.subway.domain;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;

@@ -1,4 +1,4 @@
-package kr.mingling.subway.entity;
+package kr.mingling.subway.domain;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -8,22 +8,27 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 /**
- * 노선 정보
+ * 역 정보
  */
 @Entity
-@Table(name = "lines")
+@Table(name = "stations")
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class Line extends BaseEntity {
+public class Station extends BaseEntity {
 
     /**
-     * 노선 이름
+     * 역 이름
      */
     @Column(nullable = false, length = 50)
     private String name;
 
     /**
-     * 노선 색상
+     * 위도
      */
-    private String color;
+    private Double latitude;
+
+    /**
+     * 경도
+     */
+    private Double longitude;
 }

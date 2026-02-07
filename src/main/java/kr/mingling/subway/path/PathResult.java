@@ -1,4 +1,4 @@
-package kr.mingling.subway.graph;
+package kr.mingling.subway.path;
 
 import java.util.List;
 

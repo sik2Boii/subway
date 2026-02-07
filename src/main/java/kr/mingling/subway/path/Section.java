@@ -1,4 +1,4 @@
-package kr.mingling.subway.graph;
+package kr.mingling.subway.path;
 
 /**
  * 역과 역 사이의 이동 정보
