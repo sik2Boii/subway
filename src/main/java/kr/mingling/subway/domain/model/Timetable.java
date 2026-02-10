@@ -1,4 +1,4 @@
-package kr.mingling.subway.domain;
+package kr.mingling.subway.domain.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -37,18 +37,36 @@ public class Timetable extends BaseEntity {
     /**
      * 도착 시각
      */
-    @Column(nullable = false)
     private LocalTime arrivalTime;
 
     /**
      * 출발 시각
      */
-    @Column(nullable = false)
     private LocalTime departureTime;
 
     /**
      * 정차 순번
      */
     @Column(nullable = false)
-    private int seq;
+    private int stationSeq;
+
+    /**
+     *
+     * @param train
+     * @param lineStation
+     * @param stationSeq
+     * @param arrivalTime
+     * @param departureTime
+     */
+    private Timetable(Train train, LineStation lineStation, int stationSeq, LocalTime arrivalTime, LocalTime departureTime) {
+        this.train = train;
+        this.lineStation = lineStation;
+        this.stationSeq = stationSeq;
+        this.arrivalTime = arrivalTime;
+        this.departureTime = departureTime;
+    }
+
+    public static Timetable create(Train train, LineStation lineStation, int stationSeq, LocalTime arrivalTime, LocalTime departureTime) {
+        return new Timetable(train, lineStation, stationSeq, arrivalTime, departureTime);
+    }
 }

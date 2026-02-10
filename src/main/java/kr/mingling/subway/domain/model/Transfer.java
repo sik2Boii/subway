@@ -1,4 +1,4 @@
-package kr.mingling.subway.domain;
+package kr.mingling.subway.domain.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

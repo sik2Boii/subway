@@ -1,4 +1,4 @@
-package kr.mingling.subway.domain;
+package kr.mingling.subway.domain.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -26,4 +26,10 @@ public class Line extends BaseEntity {
      * 노선 색상
      */
     private String color;
+
+    public static Line create(String name) {
+        Line line = new Line();
+        line.name = name;
+        return line;
+    }
 }

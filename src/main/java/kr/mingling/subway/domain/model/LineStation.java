@@ -1,6 +1,5 @@
-package kr.mingling.subway.domain;
+package kr.mingling.subway.domain.model;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
@@ -11,13 +10,20 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 /**
- * 열차 정보
+ * 노선별 역 정보
  */
 @Entity
-@Table(name = "trains")
+@Table(name = "line_stations")
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class Train extends BaseEntity {
+public class LineStation extends BaseEntity {
+
+    /**
+     * 역
+     */
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "station_id", nullable = false)
+    private Station station;
 
     /**
      * 노선
@@ -26,9 +32,10 @@ public class Train extends BaseEntity {
     @JoinColumn(name = "line_id", nullable = false)
     private Line line;
 
-    /**
-     * 운행 방향
-     */
-    @Column(nullable = false, length = 50)
-    private String direction;
+    public static LineStation create(Line line, Station station) {
+        LineStation ls = new LineStation();
+        ls.line = line;
+        ls.station = station;
+        return ls;
+    }
 }

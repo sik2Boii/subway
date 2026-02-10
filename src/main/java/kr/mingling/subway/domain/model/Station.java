@@ -1,4 +1,4 @@
-package kr.mingling.subway.domain;
+package kr.mingling.subway.domain.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -31,4 +31,10 @@ public class Station extends BaseEntity {
      * 경도
      */
     private Double longitude;
+
+    public static Station create(String name) {
+        Station station = new Station();
+        station.name = name;
+        return station;
+    }
 }

@@ -1,0 +1,6 @@
+package kr.mingling.subway.domain.repository;
+
+import kr.mingling.subway.domain.model.Timetable;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface TimetableRepository extends JpaRepository<Timetable, Long> {}
